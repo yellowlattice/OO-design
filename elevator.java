@@ -1,3 +1,24 @@
+enum Direction { 
+	UP, DOWN; 
+}
+enum ElevatorStatus { 
+	IDLE, MOVING, STOPPED; 
+}
+enum RequestType {
+	INTERNAL, EXTERNAL;
+}
+
+class Request implements Comparable<Request> {
+	Integer stopFloor;
+	Direction Direction;
+	RequestType type;
+	
+	@Override
+	public int compareTo(Reqest other) {
+		return this.stopFloor - other.stopFloor;
+	}
+}
+
 // a thread that listens to requests
 class RequestListener implements Runnable {
 	private Elevator elevator;
